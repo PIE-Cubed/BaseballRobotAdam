@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
 
     controller = new Controller();
-    //pivot = new Pivot();
+    pivot = new Pivot();
     shooter = new Shooter();
   }
 
@@ -107,7 +107,12 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during test mode. */
   @Override
-  public void testPeriodic() {}
+  public void testPeriodic() {
+    pivot.printPidOutput(0.8);
+    pivot.pivotTo(0.8);
+    
+    shooterControl();
+  }
 
   /** This function is called once when the robot is first started up. */
   @Override
@@ -133,6 +138,7 @@ public class Robot extends TimedRobot {
       }
     }
     else {
+      shooter.reverseShooter();
       shooter.stopWheels();
     }
   }
