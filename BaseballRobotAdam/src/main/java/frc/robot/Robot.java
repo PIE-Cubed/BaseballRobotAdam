@@ -108,10 +108,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {
-    pivot.printPidOutput(0.8);
     pivot.pivotTo(0.8);
-    
-    shooterControl();
   }
 
   /** This function is called once when the robot is first started up. */
