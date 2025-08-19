@@ -36,6 +36,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    SmartDashboard.putNumber("Shooter Angle", 0.8);
 
     controller = new Controller();
     pivot = new Pivot();
@@ -108,7 +109,12 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {
-    pivot.pivotTo(0.8);
+    //pivot.pivotTo(SmartDashboard.getNumber("Shooter Angle", 0.8));
+    //System.out.println("Target from SmartDashboard: " + SmartDashboard.getNumber("Shooter Angle", 0.8));
+    
+    //pivot.pivotTo(0.8);
+
+    pivot.printEncoderValue();
   }
 
   /** This function is called once when the robot is first started up. */
@@ -122,6 +128,8 @@ public class Robot extends TimedRobot {
   public void shooterControl() {
     boolean extendShooter = controller.extendShooter();
     boolean spinUpWheels = controller.spinWheelButton();
+
+    pivot.pivotTo(0.8);
 
     if (spinUpWheels == true) {
       shooter.spinUpWheels();

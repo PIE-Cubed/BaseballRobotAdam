@@ -56,7 +56,7 @@ public class Pivot {
     }
 
     public void pivotTo(double targetValue) {
-        double power = pivotPID.calculate((absEncoder.get()), targetValue);
+        double power = pivotPID.calculate((absEncoder.get()), MathUtil.clamp(targetValue, 0.73, 0.81));
 
         System.out.println("Current encoder value: " + absEncoder.get());
         System.out.println("Current PID output: " + power);
@@ -67,5 +67,13 @@ public class Pivot {
     // + Values lower the shooter and - values raise the shooter
     public void setMotor(double value) {
         pivotMotor.set(value);
+    }
+
+    /*
+     * minimum angle of 0.73
+     * maximum angle of 0.81
+     */
+    public void printEncoderValue() {
+        System.out.println("Current encoder value: " + absEncoder.get());
     }
 }
