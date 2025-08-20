@@ -129,7 +129,9 @@ public class Robot extends TimedRobot {
     boolean extendShooter = controller.extendShooter();
     boolean spinUpWheels = controller.spinWheelButton();
 
-    pivot.pivotTo(0.8);
+    shooter.printWheelRPM();
+
+    pivot.pivotTo(0.79);
 
     if (spinUpWheels == true) {
       shooter.spinUpWheels();

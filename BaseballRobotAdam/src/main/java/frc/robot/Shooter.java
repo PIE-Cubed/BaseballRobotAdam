@@ -74,4 +74,9 @@ public class Shooter {
         leftFlywheelMotor.set(0);
         rightFlywheelMotor.set(0);
     }
+    
+    public void printWheelRPM() {
+        System.out.println("Left wheel RPM: " + leftFlywheelMotor.getEncoder().getVelocity());
+        System.out.println("Right wheel RPM: " + rightFlywheelMotor.getEncoder().getVelocity());
+    }
 }
