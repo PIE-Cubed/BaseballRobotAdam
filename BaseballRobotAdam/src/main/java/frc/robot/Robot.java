@@ -131,7 +131,7 @@ public class Robot extends TimedRobot {
 
     shooter.printWheelRPM();
 
-    pivot.pivotTo(0.79);
+    pivot.pivotTo(0.8);
 
     if (spinUpWheels == true) {
       shooter.spinUpWheels();
